@@ -128,9 +128,9 @@ int Span::shortestSpan(void)
 
 	std::vector<int> v = _vector;
 	std::sort(v.begin(), v.end());
-	for (unsigned int i = 0; i < v.size(); i++)
+	for (unsigned int i = 1; i < v.size(); i++) // <--
 	{
-		if (i && std::abs(v[i] - v[i - 1]) < shortest_span)
+		if (std::abs(v[i] - v[i - 1]) < std::abs(shortest_span)) // <-----
 			shortest_span = std::abs(v[i] - v[i - 1]);
 	}
 	return (shortest_span);
